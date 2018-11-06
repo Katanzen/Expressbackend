@@ -1,0 +1,33 @@
+<%- include partials/header %>
+<div id="camproot" class="container-fluid bg-dark pl-4">
+
+    <div class="jumbotron">
+        <h1>
+            Campsites
+        </h1>
+    </div>
+    <div class="row">
+        <% movies.Search.forEach(element => { %>
+        <div class="col-lg-4 col-sm-6 col-xl-3">
+            <div class="card mb-3">
+                <img style="min-height: 73vh" class="card-img-top" src=" <%=element.Poster%>" />
+                <div class="card-body">
+                    <h4 class="card-title">
+                        <%= element.Title %>
+                    </h4>
+                    <p class="card-text">
+                        <%= element.Year %>
+                    </p>
+                    <a href=<%="https://www.imdb.com/title/" + element.imdbID %> class="btn btn-primary" >
+                        Go To İmdb
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <%});%>
+    </div>
+</div>
+
+<%- include partials/footer %>
