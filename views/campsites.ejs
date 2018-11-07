@@ -7,20 +7,20 @@
         </h1>
     </div>
     <div class="row">
-        <% movies.Search.forEach(element => { %>
+        <% movies.forEach(element => { %>
         <div class="col-lg-4 col-sm-6 col-xl-3">
             <div class="card mb-3">
-                <img style="min-height: 73vh" class="card-img-top" src=" <%=element.Poster%>" />
+                <img style="min-height: 73vh" class="card-img-top" src=" <%=element.url%>" />
                 <div class="card-body">
                     <h4 class="card-title">
-                        <%= element.Title %>
+                        <%= element.name %>
                     </h4>
-                    <p class="card-text">
+                    <!-- <p class="card-text">
                         <%= element.Year %>
                     </p>
                     <a href=<%="https://www.imdb.com/title/" + element.imdbID %> class="btn btn-primary" >
                         Go To İmdb
-                    </a>
+                    </a> -->
                 </div>
             </div>
 
@@ -28,6 +28,10 @@
 
         <%});%>
     </div>
+    <a style="width: 300px" class="btn btn-danger btn-large" href="/">
+        Back
+    </a>
 </div>
+
 
 <%- include partials/footer %>

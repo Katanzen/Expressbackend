@@ -1,11 +1,13 @@
 <% include partials/header %>
 
-
-<form action="/campsites" method="POST">
-    <input name="name" type="text"></input>
-    <button placeholder="moviename" type="submit">
-        Submit
-    </button>
-</form>
-
+<div class="container pt-5">
+    <form style="max-width: 30vw" class="form-group card" action="/campsites" method="POST">
+        <input class="form-control" name="name" type="text" />
+        <input class="form-control" name="url" type="text" />
+        <button class="btn btn-warning" placeholder="moviename" type="submit">
+            Submit
+        </button>
+    </form>
+    <a href="/" class="btn btn-dark">Back</a>
+</div>
 <% include partials/footer %>
