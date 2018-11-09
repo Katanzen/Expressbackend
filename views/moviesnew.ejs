@@ -1,9 +1,15 @@
 <% include partials/header %>
 
 <div class="container pt-5">
-    <form style="max-width: 30vw" class="form-group card" action="/campsites" method="POST">
+    <form
+        style="max-width: 30vw"
+        class="form-group card"
+        action="/campsites"
+        method="POST"
+    >
         <input class="form-control" name="name" type="text" />
         <input class="form-control" name="url" type="text" />
+        <input type="text" name="thoughts" class="form-control" />
         <button class="btn btn-warning" placeholder="moviename" type="submit">
             Submit
         </button>

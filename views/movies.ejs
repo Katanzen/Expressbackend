@@ -1,0 +1,36 @@
+<%- include partials/header %>
+<div id="camproot" class="container-fluid bg-dark pl-4">
+    <div class="jumbotron text-center text-secondary bg-light">
+        <h1>Best Movie Posters Of All Time</h1>
+    </div>
+    <div class="row">
+        <% movies.forEach(element => { %>
+        <div class="col-sm-6 col-xl-6">
+            <div class="card mb-3">
+                <img
+                    style="min-height: 73vh"
+                    class="card-img-top"
+                    src=" <%=element.url%>"
+                />
+                <div class="card-body">
+                    <h4 class="card-title"><%= element.name %></h4>
+                    <p class="card-text"><%= element.Thoughts %></p>
+                    <!--
+                        <a href=<%="https://www.imdb.com/title/" + element.imdbID %> class="btn btn-primary" >
+
+                            Go To İmdb
+
+                        </a>
+                    -->
+                </div>
+            </div>
+        </div>
+
+        <%});%>
+    </div>
+    <a style="width: 300px" class="btn btn-danger btn-large mb-2" href="/">
+        Back
+    </a>
+</div>
+
+<%- include partials/footer %>

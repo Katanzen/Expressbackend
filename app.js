@@ -1,6 +1,6 @@
 /*
-* New studying project
-*/
+ * New studying project
+ */
 var express = require("express"),
     app = express(),
     bodyParser = require("body-parser"),
@@ -21,21 +21,51 @@ Movie.find({}, (err, Rmovies) => {
     if (err) {
         console.log("FİNDİNG THE COLLECTİON ERROR: " + err);
     } else {
+        // console.log(Rmovies[1].id);
+        // Rmovies.forEach(element => {
+        // element.thoughts = "Nothing for now";
+        // element.save();
+        // Movie.find({ _id: element.id }, (err, resp) => {
+        //     console.log(resp);
+        // });
+        // Movie.update({name : "Matrix"},{Thoughts : "Nothing for now "}, (err, resp)=> {
+        //     console.log(resp);
+        // })
+        // Movie.updateOne(
+        //     { _id: element.id },
+        //     { Thoughts: "Nothing for now" },
+        //     (err, resp) => {
+        //         // resp.save();
+        //         console.log(resp);
+        //     }
+        // );
+        // });
         movies = Rmovies;
+        // console.log(movies);
     }
 });
+// TurboManSchema.add(ToySchema).add({ year: Number });
+// Movie.find({ name: "Matrix" }, (err, obj) => {
+//     if (err) {
+//         console.log(err);
+//     } else {
+//         obj.update({ $set: { Thoughts: "Nothing for now" } });
+//         console.log(obj);
+//     }
+// });
 
-app.get("/campsites", (req, res) => {
+app.get("/movies", (req, res) => {
     if (movies == null) {
-        res.redirect("/campsites/new");
+        res.redirect("/movies/new");
     }
-    res.render("campsites", { movies });
+    res.render("movies", { movies });
 });
 
-app.post("/campsites", (req, res) => {
+app.post("/movies", (req, res) => {
     Movie.create({
         name: req.body.name,
-        url: req.body.url
+        url: req.body.url,
+        Thoughts: req.body.Thoughts
     });
     Movie.find({}, (err, Rmovies) => {
         if (err) {
@@ -45,10 +75,10 @@ app.post("/campsites", (req, res) => {
             console.log(movies);
         }
     });
-    res.render("campsites", { movies });
+    res.render("movies", { movies });
 });
-app.get("/campsites/new", (req, res) => {
-    res.render("campsitesnew");
+app.get("/movies/new", (req, res) => {
+    res.render("moviesnew");
 });
 app.get("/", (req, res) => {
     res.render("home");
